@@ -11,7 +11,18 @@ body
   background-color: black;
   display: flex; /* Utilisez flexbox */
   flex-direction: column; /* Orientation verticale */
-  min-height: 100vh; /* Hauteur minimum de 100% de la fenêtre de visualisation */
+  margin: auto;
+  min-height: 100vh; /* Utilisez vh au lieu de % */
+  width: 100%;
+  align-items: stretch; /* assure que les enfants s'étendent en largeur */
+}
+
+html, body {
+    overflow-x: hidden; /* Cache le débordement horizontal */
+    width: 100%;
+    overflow-y: auto; /* permet le défilement vertical si nécessaire */
+    margin: 0;
+    padding: 0;
 }
 
 .nav-item a:hover, .nav-item2 a:hover {
@@ -19,10 +30,8 @@ body
     transition: color 0.2s; /* Transition douce pour la couleur du texte */
 }
 
-.mainContainer{
-    flex: 1;
-    overflow: auto; /* Ajoutez un défilement si le contenu est plus long que la hauteur de mainContainer */
-    margin: auto;
+main {
+    flex: 1; /* Cela permet à main de s'étendre pour occuper tout l'espace disponible */
 }
 
 .navbar
@@ -168,12 +177,94 @@ ul {
 /*************************/
 
 /*************************/
+/*CETTE PARTIE EST FAITE POUR LA BARRE DE RECHERCHE
+/*************************/
+
+/*SEARCH BAR*/
+.searchArea{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.searchArea h2{
+    font-size: 1.5em;
+    font-weight: lighter;
+}
+
+.horizontalLine{
+    width: 35vh;
+    margin-top: 10px;
+}
+
+.searchBar{
+    display: flex; /* Utilisez flex pour disposer les éléments de la barre de recherche */
+    align-items: center;
+    background: white;
+    border-radius: 20px;
+    margin-top: 20px;
+    border: solid  #F2AD62;
+    border-width: 2px;
+    width: 30%;          
+    padding-right: 10px; /* Ajoutez du padding pour éviter que le contenu touche le bord */
+}
+
+.search{
+    flex-grow: 1; /* Permet à l'élément de recherche de remplir l'espace disponible */
+    background: none;
+    border: none;
+    color: black;
+    padding-left: 10px;
+}
+
+.searchButton{
+    background: none;
+    border: none;
+    padding: 5px 10px;
+}
+
+.searchIcon{
+    width: 15px;
+}
+
+.search:focus {
+    outline: none;  
+}
+
+.searchButton:hover{
+    cursor:pointer ;
+}
+
+.searchButton:focus {
+    outline: none;  
+}
+
+/*CATEGORIES*/
+.categories{
+    display: flex;
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne suivante */
+    margin: 80px;
+    justify-content: center;
+
+}
+
+.categories a{
+    margin: 0 45px;
+    min-width: 80px;
+}
+
+/*************************/
+/*************************/
+/*************************/
+
+/*************************/
 /*CETTE PARTIE EST FAITE POUR LE LOGIN ET L'INSCRIPTION*/
 /*************************/
 
 .login-png
 {
     width: 40%;
+    height: auto;
 }
 
 .form-title{
@@ -187,10 +278,18 @@ ul {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    border: 2px solid #ffffff; /* Couleur et épaisseur de la bordure */
+    background-color: rgba(255, 255, 255, 0.096);
+    width: 240px;
+    padding: 20px; /* Ajoutez de l'espace à l'intérieur de la bordure si nécessaire */
+    margin: auto;
+
 }
 
-input{
+input, textarea{
     color: black; /* Définir la couleur du texte en noir avec la priorité */
+    height: 25px;
+    margin: 5px;
 }
 
 .label-content {
@@ -304,6 +403,95 @@ hr
         font-size: 10px;
     }
 }
+
+/*************************/
+/*************************/
+/*************************/
+
+/*************************/
+/*CETTE PARTIE EST FAITE POUR LE BOOKADD, SKIP SI VOUS VOULEZ MISE EN PAGE*/
+/*************************/
+
+:root{
+    --mainW1:440px;
+    --mainW2:300px;
+    --mainH: 32px;
+    --mainColor: #D9D9D9;
+    --txtColor: #FFFFFF;
+  }
+
+  #bookTitle
+  {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+  }
+
+  .flexboxContainerAddBook {
+    display: flex;
+    flex-direction: row; /* Ajustement pour afficher en ligne */
+    flex-wrap: wrap;
+    width: auto;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 20px;
+    justify-content: center;
+    border: 3px solid rgba(255, 255, 255, 0.397);
+    background-color: rgba(255, 255, 255, 0.089);
+    font-size: 16px;
+  }
+
+  .myForm
+  {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .flexbox {
+    width: calc(50% - 20px); /* 50% width with margin */
+    margin: 40px;
+  }
+  
+  #flexbox-item-1,
+  #flexbox-item-2 {
+    flex: 1;
+  }
+  
+  #flexbox-item-1, #flexbox-item-2 {
+    display: flex; /* Ajout pour permettre le centrage vertical */
+    flex-direction: column; /* Ajout pour permettre le centrage vertical */
+    align-items: center; /* Ajout pour centrer horizontalement */
+  }
+
+  #bookName,
+  #pageNbr,
+  #bookCategory,
+  #extraitBook,
+  #writerFirstName,
+  #writerLastName,
+  #editorName,
+  #releaseDate {
+    width: var(--mainW1);
+    height: var(--mainH);
+    background-color: var(--mainColor);
+  }
+  
+  #bookSynopsis {
+    max-width: var(--mainW1); /* Limite la largeur à --mainW1 */
+    height: 285px;
+    background-color: var(--mainColor);
+  }
+
+  .subButton
+  {
+    display: flex;
+    width: 100%;
+    height: 30px;
+    justify-content: center;
+    margin-bottom: 10px;
+    order: 1; /* Spécifie l'ordre d'affichage du bouton */
+  }
 
 /*************************/
 /*************************/

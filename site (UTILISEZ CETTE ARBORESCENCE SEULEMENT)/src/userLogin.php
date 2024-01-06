@@ -14,6 +14,7 @@ $db = new Database();
     <link rel="stylesheet" href="./CSS/styleLeo.css">
 </head>
     <body>
+        <main>
         <nav class="navbar">
             <ul>
                 <li class="nav-item"><a href="../HTML/Index.php">Accueil</a></li>
@@ -23,7 +24,6 @@ $db = new Database();
                 <li class="nav-item"><a href="login.php">Connexion</a></li>
             </ul>
         </nav>
-        <div class="mainContainer">
             <div class="form-content">
                 <div class="login-png">    
                     <img src="./resources/img/login.png" alt="">
@@ -48,7 +48,7 @@ $db = new Database();
                 </form>
                 <a href="UserRegistration.php"><h4 class="inscription">S'inscrire</h4></a>
             </div> 
-        </div> 
+        </main>
     <footer>
         <img src="../src/resources/img/books.png" alt="books" class="item-1">
         <p class="item-2">readersrealm@gmail.com <br> Théo Ghaemmagami | Yann Mangiagli | Leonar Sadriu | Harun Findik</p> 
