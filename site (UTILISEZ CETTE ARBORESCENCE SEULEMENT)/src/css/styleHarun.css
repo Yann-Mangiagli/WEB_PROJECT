@@ -1,0 +1,173 @@
+/*Variable Taille Css*/
+:root{
+    --mainW1:440px;
+    --mainW2:300px;
+    --mainH: 32px;
+    --mainColor: #D9D9D9;
+    --txtColor: #FFFFFF;
+  }
+  
+  *{
+      margin: 0;
+      padding: 0;
+      /*       A REVOIR     */
+      font-family: sans-serif; 
+  }
+  
+  /*HEADER*/
+  
+  .nav-item a:hover, .nav-item2 a:hover {
+    color:blanchedalmond; /* Change la couleur du texte des liens au survol */
+    transition: color 0.2s; /* Transition douce pour la couleur du texte */
+  }
+  
+  .mainContainer{
+    flex: 1;
+    overflow: auto; /* Ajoutez un défilement si le contenu est plus long que la hauteur de mainContainer */
+  }
+  
+  .navbar
+  {
+    height: 30%;
+    background-color: black;
+  }
+  
+  ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  align-items: flex-start;
+  }
+  
+  .nav-item {
+  flex: 1;
+  text-align: center;
+  font-size: 3vh; /* Taille de police fixe */
+  padding-top: 2.5%;
+  }
+  
+  .nav-item2 {
+    flex: 1;
+    text-align: center;
+    font-size: 3vh; /* Taille de police fixe */
+    padding-top: 5%;
+  }
+  
+  /* Garder les proportions des photos*/
+  img {
+    height: 100%; 
+    width: 100%; 
+  }
+  
+  .nav-logo {
+    height: 35vh; /* taille fixe du logo */  
+  }
+  
+  /*End Header*/
+  
+  body
+  {
+    background-color: black;
+  }
+  
+  .mainContainer{
+      width: 100%;
+      height: 100vh;
+  }
+  
+  h1{
+      font-size: 30px;
+      color: whitesmoke ;
+      text-align: center;
+  }
+  
+  /*Add Teacher Page*/
+  .flexboxContainerAddBook{
+    display: flex;
+    flex-direction: row;
+    width: 90%;
+    margin-left: 5%;
+    margin-right: 5%;
+    /*border: 3px solid red;*/
+    /*background-color: white;*/
+    font-size: 16px;
+  }
+  .flexbox{
+    width: 300px;
+    margin:0px;
+    /*border: 3px solid whitesmoke;*/
+    /*background-color: white;*/
+    min-height: 300px;
+  }
+  #flexbox-item-1{
+    flex: 1;
+    color:var(--txtColor);
+  }
+  #flexbox-item-2{
+  flex: 1;
+  color:var(--txtColor);
+  }
+  
+  #bookName{
+   width: var(--mainW1);
+   height: var(--mainH);
+   background-color: var(--mainColor);
+  }
+  #pageNbr{
+    width: var(--mainW2);
+    height: var(--mainH);
+    background-color: var(--mainColor);
+  }
+  #bookCategory{
+    width: var(--mainW2);
+    height: var(--mainH);
+    background-color: var(--mainColor);
+  }
+  #extraitBook{
+    width: var(--mainW1);
+    height: var(--mainH);
+    background-color: var(--mainColor);
+  }
+  #bookSynopsis{
+    width: var(--mainW1);
+    height: 245px;
+    background-color: var(--mainColor);
+  }
+  #writerFirstName, #writerLastName{
+    width: 205px;
+    height: var(--mainH);
+    margin-right: 20px;
+    background-color: var(--mainColor);
+  }
+  #editorName{
+    width: var(--mainW1);
+    height: var(--mainH);
+    background-color: var(--mainColor);
+  }
+  #releaseDate{
+    width: var(--mainW1);
+    height: var(--mainH);
+    background-color: var(--mainColor);
+  }
+  /* FOOTER */
+  
+  .footer {
+      display: flex;
+      width: 100%;
+      background-color: black;
+      color: white;
+      text-align: center;
+      font-family: Arial, Helvetica, sans-serif ;
+    }
+  
+    .item-1{
+      width: 10%;
+    }
+    .item-2{
+      flex-grow: 1;  
+      font-size: 1.8vh;
+      align-self: flex-end;
+    }
+  
+  
+  

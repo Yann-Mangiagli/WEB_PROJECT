@@ -1,0 +1,160 @@
+*{
+    margin: 0;
+    padding: 0;
+    /*       A REVOIR     */
+    font-family: sans-serif; 
+    color: white;
+}
+
+body
+{
+  background-color: black;
+  display: flex; /* Utilisez flexbox */
+  flex-direction: column; /* Orientation verticale */
+  min-height: 100vh; /* Hauteur minimum de 100% de la fenêtre de visualisation */
+}
+
+.nav-item a:hover, .nav-item2 a:hover {
+    color:blanchedalmond; /* Change la couleur du texte des liens au survol */
+    transition: color 0.2s; /* Transition douce pour la couleur du texte */
+}
+
+.mainContainer{
+    flex: 1;
+    overflow: auto; /* Ajoutez un défilement si le contenu est plus long que la hauteur de mainContainer */
+}
+
+.navbar
+{
+    height: 30%;
+    background-color: black;
+}
+
+ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  align-items: flex-start;
+}
+
+.nav-item {
+  flex: 1;
+  text-align: center;
+  font-size: 3vh; /* Taille de police fixe */
+  padding-top: 2.5%;
+}
+
+.nav-item2 {
+    flex: 1;
+    text-align: center;
+    font-size: 3vh; /* Taille de police fixe */
+    padding-top: 5%;
+  }
+
+/* Garder les proportions des photos*/
+img {
+    height: 100%; 
+    width: 100%; 
+}
+
+.nav-logo {
+    height: 35vh; /* taille fixe du logo */  
+}
+/***************************************************************************/
+/***************************************************************************/
+/***************************************************************************/
+
+/*SEARCH BAR*/
+.searchArea{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.searchArea h2{
+    font-size: 1.5em;
+    font-weight: lighter;
+}
+
+.horizontalLine{
+    width: 35vh;
+    margin-top: 10px;
+}
+
+.searchBar{
+    display: flex; /* Utilisez flex pour disposer les éléments de la barre de recherche */
+    align-items: center;
+    background: white;
+    border-radius: 20px;
+    margin-top: 20px;
+    border: solid  #F2AD62;
+    border-width: 2px;
+    width: 30%;          
+    padding-right: 10px; /* Ajoutez du padding pour éviter que le contenu touche le bord */
+}
+
+.search{
+    flex-grow: 1; /* Permet à l'élément de recherche de remplir l'espace disponible */
+    background: none;
+    border: none;
+    color: black;
+    padding-left: 10px;
+}
+
+.searchButton{
+    background: none;
+    border: none;
+    padding: 5px 10px;
+}
+
+.searchIcon{
+    width: 15px;
+}
+
+.search:focus {
+    outline: none;  
+}
+
+.searchButton:hover{
+    cursor:pointer ;
+}
+
+.searchButton:focus {
+    outline: none;  
+}
+
+/*CATEGORIES*/
+.categories{
+    display: flex;
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne suivante */
+    margin: 80px;
+    justify-content: center;
+
+}
+
+.categories a{
+    margin: 0 45px;
+    min-width: 80px;
+}
+
+
+/***************************************************************************/
+/***************************************************************************/
+/***************************************************************************/
+footer {
+    display: flex;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif ;
+  }
+
+  .item-1{
+    width: 10%;
+  }
+  .item-2{
+    flex-grow: 1;  
+    font-size: 1.8vh;
+    align-self: flex-end;
+  }

@@ -1,0 +1,347 @@
+*{
+    margin: 0;
+    padding: 0;
+    /*       A REVOIR     */
+    font-family: sans-serif; 
+    color: white;
+}
+
+body
+{
+  background-color: black;
+  display: flex; /* Utilisez flexbox */
+  flex-direction: column; /* Orientation verticale */
+  min-height: 100vh; /* Hauteur minimum de 100% de la fenêtre de visualisation */
+}
+
+.nav-item a:hover, .nav-item2 a:hover {
+    color:blanchedalmond; /* Change la couleur du texte des liens au survol */
+    transition: color 0.2s; /* Transition douce pour la couleur du texte */
+}
+
+.mainContainer{
+    flex: 1;
+    overflow: auto; /* Ajoutez un défilement si le contenu est plus long que la hauteur de mainContainer */
+    margin: auto;
+}
+
+.navbar
+{
+    background-color: black;
+}
+
+ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    justify-content: space-between; /* Aligne les éléments de manière égale */
+  }
+  
+  @media (max-width:320px) {
+    ul{
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+
+.nav-item-two, .nav-item, .nav-logo{
+    flex: 1;
+}
+
+.nav-item {
+  text-align: center;
+  font-size: 28px; /* Taille de police fixe */
+  padding-top: 2.5%;
+}
+
+.nav-item-two {
+    text-align: center;
+    font-size: 28px; /* Taille de police fixe */
+    padding-top: 5%;
+  }
+
+  img {
+    height: 100%; 
+    width: 100%; 
+}
+
+  @media (max-width:780px) {
+    .nav-item, .nav-item-two{
+        font-size: 16px; 
+        margin: 10px;
+    }
+    .nav-logo{
+        height: auto;
+    }
+}
+
+@media (max-width:480px) {
+    .nav-logo{
+        display:none;
+    }
+}
+
+
+/*************************/
+/*CETTE PARTIE EST FAITE POUR L'INDEX, SKIP SI VOUS VOULEZ MISE EN PAGE*/
+/*************************/
+
+.intro-section, .book-section, .exchange-section, .footer-section {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.exchange-section
+{
+    width: 25%; /* Réduire la largeur pour augmenter le nombre de lignes */
+    margin: 0 10px; /* Ajuster la marge pour ne pas que les textes se touchent */
+    margin: auto;
+}
+
+.section-title {
+    color: blanchedalmond;
+    font-size: 28px;
+    text-align: center; /* Centrer le texte */
+    margin-bottom: 20px; /* Espacement en bas pour séparer du contenu en dessous */
+    padding: 0px 0; /* Ajouter de l'espace au-dessus et en dessous du texte */
+}
+
+.intro-columns {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.text-style
+{
+    font-size: 20px;
+    line-height: 1.6; /* Ajuster l'espace entre les lignes de texte */
+}
+
+.intro-column {
+    width: 25%; /* Réduire la largeur pour augmenter le nombre de lignes */
+    padding: 10px; /* Ajouter du padding pour contrôler l'espace autour du texte */
+    margin: 0 10px; /* Ajuster la marge pour ne pas que les textes se touchent */
+    line-height: 1.6; /* Ajuster l'espace entre les lignes de texte */
+}
+
+.footer-section {
+    font-style: italic; /* Si vous souhaitez un style italique */
+    font-size: 20px;
+}
+
+
+@media (max-width:780px) {
+
+    .intro-column
+    {
+        width: 70%;
+    }
+}
+
+@media (max-width:480px) {
+    .section-title{
+        font-size: 18px;
+    }
+    .intro-columns
+    {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .intro-column
+    {
+        width: 90%;
+    }
+    .text-style{
+        font-size: 14px;
+    }
+    h1{
+        font-size: 20px;
+        margin: 10px;
+    }
+}
+
+/*************************/
+/*************************/
+/*************************/
+
+/*************************/
+/*CETTE PARTIE EST FAITE POUR LE LOGIN ET L'INSCRIPTION*/
+/*************************/
+
+.login-png
+{
+    width: 40%;
+}
+
+.form-title{
+    text-align: center;
+    margin: 10px;
+}
+
+.form-content
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+input{
+    color: black; /* Définir la couleur du texte en noir avec la priorité */
+}
+
+.label-content {
+    text-align: center; /* Ajoutez cette ligne pour centrer le texte des labels */
+}
+
+#submit
+{
+    margin: 15px;
+    width: 40%;
+    color: black;
+}
+
+.inscription
+{
+    margin: 10px;
+}
+
+/*************************/
+/*************************/
+/*************************/
+
+/*************************/
+/*CETTE PARTIE EST FAITE POUR MODIFIER ET SUPPRIMER LES LIVRES, SKIP SI VOUS VOULEZ JUSTE LA MISE EN PAGE*/
+/*************************/
+
+hr
+{
+    width: 20%;
+    margin: 20px auto; /* Marge en haut et en bas, et auto pour les marges latérales pour centrer */
+}
+
+.book-section-title {
+    color:blanchedalmond; /* Couleur du texte */
+    font-size: 20px; /* Taille du texte */
+    text-align: center; /* Centrer le texte */
+    margin-bottom: 20px; /* Espacement en bas pour séparer du contenu en dessous */
+    padding: 20px 0; /* Ajouter de l'espace au-dessus et en dessous du texte */
+}
+
+.book-section {
+    display: flex;
+    flex-wrap: wrap; /* Permet aux éléments de passer à la ligne suivante si nécessaire */
+    gap: 20px; /* Espacement entre les éléments de la grille */
+    justify-content: center; /* Centrer les éléments horizontalement */
+    align-items: center; /* Centrer les éléments verticalement */
+}
+
+.book {
+    width: 150px; /* Largeur fixe pour chaque livre, ajustez selon vos besoins */
+    margin: 10px; /* Espacement autour de chaque livre */
+    background-color: rgba(255, 255, 255, 0.103); /* Fond blanc pour chaque livre */
+    border: 1px solid #ddd; /* Bordure légère pour délimiter les livres */
+    padding: 10px; /* Espacement à l'intérieur de chaque livre */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Ombre portée pour un effet de profondeur */
+    transition: transform 0.3s ease-in-out; /* Transition pour un effet au survol */
+}
+
+.book:hover {
+    transform: translateY(-6px); /* Légère élévation du livre au survol */
+}
+
+.book img {
+    width: 100%; /* Les images prennent toute la largeur disponible */
+    height: auto; /* Hauteur auto pour conserver les proportions */
+    display: block; /* Les images s'affichent en bloc */
+}
+
+.book-title {
+    font-size: 1rem; /* Taille de la police pour le titre du livre */
+    margin-top: 10px; /* Espacement au-dessus du titre */
+    text-align: center; /* Titre centré */
+}
+
+.book-actions {
+    display: flex;
+    justify-content: space-around; /* Espacement équitable entre les boutons */
+    margin-top: 10px; /* Espacement au-dessus des boutons */
+}
+
+.book-action {
+    flex: 1;
+    padding: 5px 10px; /* Padding pour les boutons */
+    background-color:rgba(255, 235, 205, 0.075);
+    border: none; /* Pas de bordure pour les boutons */
+    cursor: pointer; /* Curseur en forme de main au survol des boutons */
+}
+
+.book-action:hover {
+    color:blanchedalmond; /* Couleur du texte au survol */
+    transform: scale(1.05); /* Légère augmentation de la taille au survol */
+}
+
+@media (max-width:780px) {
+    .book{
+        width: 95px; /* Largeur fixe pour chaque livre, ajustez selon vos besoins */
+    }
+    .book-title{
+        font-size: 0.8rem;
+    }
+    .book-action{
+        padding: 1px 1.5px; /* Padding pour les boutons */
+    }
+    .book-section-title{
+        font-size: 14px;
+    }
+}
+
+@media (max-width:300px) {
+    .book-section-title{
+        font-size: 10px;
+    }
+}
+
+/*************************/
+/*************************/
+/*************************/
+
+footer {
+    display: flex;
+    width: 100%;
+    background-color: black;
+    color: white;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif ;
+  }
+
+  .item-1{
+    width: 10%;
+
+    align-items: flex-end;
+  }
+  .item-2{
+    flex-grow: 1;  
+    font-size: 16px;
+    align-self: flex-end;
+  }
+
+  @media (max-width:780px) {
+    .item-2{
+        font-size: 12px;
+    }
+}
+
+@media (max-width:480px) {
+    .item-1{
+        display:none;
+    }
+    .item-2{
+        font-size: 10px;
+    }
+}
+
+  
