@@ -25,11 +25,27 @@ if (isset($_SESSION['user'])) {
         <main>
             <nav class="navbar">
                 <ul>
-                    <li class="nav-item"><a href="index.php">Accueil</a></li>
+                    <li class="nav-item-one"><a href="index.php">Accueil</a></li>
                     <li class="nav-item-two"><a href="">Livres</a></li>
                     <li class="nav-logo"><a href=""><img src="./resources/img/logoRR.png" alt="Readers Realm logo"></a></li>
                     <li class="nav-item-two"><a href="userDetails.php">Contact</a></li>
-                    <li class="nav-item"><a href="userLogin.php">Connexion</a></li>
+                    <?php
+            if (isset($_SESSION['user'])) {
+                // Utilisateur connecté
+                echo '<li class="nav-item dropdown">';
+                echo '<a href="javascript:void(0)" class="dropbtn">Mon compte</a>';
+                echo '<div class="dropdown-content">';
+                echo '<a href="userDetails.php">Détail du compte</a>';
+                echo '<a href="userBooks.php">Mes livres</a>';
+                echo '<a href="bookAdd.php">Ajouter un livre</a>';
+                echo '<a href="logout.php">Déconnexion</a>';
+                echo '</div>';
+                echo '</li>';
+            } else {
+                // Utilisateur non connecté
+                echo '<li class="nav-item"><a href="userLogin.php">Connexion</a></li>';
+            }
+            ?>
                 </ul>
             </nav>
             <!--(contenu unique à cette page) -->
@@ -80,7 +96,7 @@ if (isset($_SESSION['user'])) {
                     <br>
                     <p class="text-style">Ici, chaque livre est une expérience partagée.</p>
                 </div>
-            <main>
+        </main>
         <!--(contenu unique à cette page) --> 
     <footer>
         <img src="../src/resources/img/books.png" alt="books" class="item-1">

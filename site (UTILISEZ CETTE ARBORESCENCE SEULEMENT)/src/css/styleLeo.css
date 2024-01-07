@@ -25,7 +25,7 @@ html, body {
     padding: 0;
 }
 
-.nav-item a:hover, .nav-item2 a:hover {
+.nav-item a:hover, .nav-item2 a:hover, .nav-item-one a:hover {
     color:blanchedalmond; /* Change la couleur du texte des liens au survol */
     transition: color 0.2s; /* Transition douce pour la couleur du texte */
 }
@@ -54,12 +54,18 @@ ul {
 }
 
 
-.nav-item-two, .nav-item, .nav-logo{
+.nav-item-two, .nav-item, .nav-logo, .nav-item-one{
     flex: 1;
 }
 
+
+.nav-item-one {
+    text-align: right;
+    font-size: 28px; /* Taille de police fixe */
+    padding-top: 2.5%;
+  }
+
 .nav-item {
-  text-align: center;
   font-size: 28px; /* Taille de police fixe */
   padding-top: 2.5%;
 }
@@ -76,7 +82,7 @@ ul {
 }
 
   @media (max-width:780px) {
-    .nav-item, .nav-item-two{
+    .nav-item, .nav-item-two, .nav-item-one{
         font-size: 16px; 
         margin: 10px;
     }
@@ -139,7 +145,30 @@ ul {
     font-style: italic; /* Si vous souhaitez un style italique */
     font-size: 20px;
 }
+ 
+.dropdown-content {
+    display: none;
+    position: absolute;
+    align-items: center;
+    background-color: #f9f9f9e7;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
 
+.dropdown-content a {
+    color: black;
+    padding: 8px 10px;
+    font-size: 24px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+.dropdown-content a:hover {background-color: #0000005e;}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
 
 @media (max-width:780px) {
 
@@ -306,6 +335,20 @@ input, textarea{
 .inscription
 {
     margin: 10px;
+}
+
+/*************************/
+/*************************/
+/*************************/
+
+/*************************/
+/*CETTE PARTIE EST FAITE POUR USERDETAILS
+/*************************/
+
+.user-info-section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /*************************/
