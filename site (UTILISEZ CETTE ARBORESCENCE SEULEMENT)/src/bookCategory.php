@@ -1,5 +1,7 @@
 <?php
 session_start();
+include("./database.php"); // Assurez-vous d'inclure votre script de connexion à la base de données
+$db = new Database();
 // Vérifier si l'utilisateur est connecté
 if (isset($_SESSION['user'])) {
     $user = $_SESSION['user'];
@@ -47,22 +49,36 @@ if (isset($_SESSION['user'])) {
             ?>
                 </ul>
             </nav>
-                <div class="searchArea">
-                    <h2>Quel livre recherchez-vous ?</h2>
-                    <hr class="horizontalLine">
-                    <form class="searchBar">
-                        <input type="text" class="search" id="search" name="search" placeholder="Rechercher...">
-                        <button class="searchButton">
-                            <img src="../src/resources/img/Search.png" class="searchIcon">
-                        </button>
-                    </form>
-                </div> 
-                <div class="categories">
-                    <a href="bookCategory.php?cat_id=1"><img src="../src/resources/img/horrorCategory.png" alt="Horreur"></a>
-                    <a href="bookCategory.php?cat_id=2"><img src="../src/resources/img/ComedieCategory.png" alt="Comédie"></a>
-                    <a href="bookCategory.php?cat_id=3"><img src="../src/resources/img/sfCategory.png" alt="Science-fiction"></a>
-                    <a href="bookCategory.php?cat_id=4"><img src="../src/resources/img/policeCategory.png" alt="Policier"></a>
-                </div>
+                <h2 class="section-title">Catégorie :</h2>
+                <?php
+                // bookCategory.php
+                if (isset($_GET['cat_id'])) {
+                    $categoryId = $_GET['cat_id'];
+                    
+                    // Obtenez le nom de la catégorie
+                    $categoryName = $db->getCategoryName($categoryId);
+
+                    // Obtenez les livres de cette catégorie
+                    $books = $db->getBooksByCategory($categoryId);
+                } else {
+                    echo "Aucune catégorie sélectionnée.";
+                    exit;
+                }
+
+                // Afficher le nom de la catégorie
+                echo "<h2>Catégorie : $categoryName</h2>";
+                echo "<br>";
+
+                // Afficher les livres
+                foreach ($books as $book) {
+                    echo "<p>Titre :".$book['booTitle']."</p>"; // Utilisation de 'booTitle' pour accéder au titre du livre
+                    echo "<br>";
+                    echo "<p>Résumé : " . htmlspecialchars($book['booResumeBook']) . "</p>";// Utilisation de 'booTitle' pour accéder au titre du livre
+                    echo "<br>";
+                    echo "<br>";
+                }
+                
+                ?>
             </main>
         <footer>
             <img src="../src/resources/img/books.png" alt="books" class="item-1">

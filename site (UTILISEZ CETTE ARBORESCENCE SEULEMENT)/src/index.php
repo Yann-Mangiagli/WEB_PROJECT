@@ -26,7 +26,7 @@ if (isset($_SESSION['user'])) {
             <nav class="navbar">
                 <ul>
                     <li class="nav-item-one"><a href="index.php">Accueil</a></li>
-                    <li class="nav-item-two"><a href="">Livres</a></li>
+                    <li class="nav-item-two"><a href="bookSearch.php">Livres</a></li>
                     <li class="nav-logo"><a href=""><img src="./resources/img/logoRR.png" alt="Readers Realm logo"></a></li>
                     <li class="nav-item-two"><a href="userDetails.php">Contact</a></li>
                     <?php

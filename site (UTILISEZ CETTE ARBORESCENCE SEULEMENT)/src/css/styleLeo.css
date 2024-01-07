@@ -315,7 +315,7 @@ ul {
 
 }
 
-input, textarea{
+input, textarea, select, option{
     color: black; /* Définir la couleur du texte en noir avec la priorité */
     height: 25px;
     margin: 5px;
@@ -536,6 +536,10 @@ hr
     order: 1; /* Spécifie l'ordre d'affichage du bouton */
   }
 
+  input#coverImage{
+    color:white;
+  }
+
 /*************************/
 /*************************/
 /*************************/
@@ -574,5 +578,3 @@ footer {
         font-size: 10px;
     }
 }
-
-  

@@ -27,11 +27,10 @@ class Database {
     }
 
     private function queryPrepareExecute($query, $binds){
-
         $req = $this->connector->prepare($query);
-        foreach($binds as $bind) {
-            $req->bindValue($bind[0], $bind[1], PDO::PARAM_STR);
-        }    
+        foreach ($binds as $key => $value) {
+            $req->bindValue(':'.$key, $value); // Assurez-vous que le type de données est correct pour chaque bind
+        }
         $req->execute();
         return $req;
     }
@@ -98,25 +97,62 @@ class Database {
     }
 
     public function addBook($data){
-
-        $query = "INSERT INTO t_book (category_fk, writer_fk, user_fk, booTitle, booExemplary, 
-        booResumeBook, booNbrPage, booEditorName, booLikeRatio, booCoverImage) 
-        VALUES (:category_fk, :writer_fk, :user_fk, :booTitle, :booExemplary, :booResumeBook, :booNbrPage, :booEditorName, :booLikeRatio, :booCoverImage)";
-
-        $binds = [   
-            ['category_fk', $data['category_fk']],
-            ['writer_fk', $data['writer_fk']], 
-            ['user_fk', $data['user_fk']], 
-            ['booTitle', $data['booTitle']], 
-            ['booExemplary', $data['booExemplary']], 
-            ['booResumeBook', $data['booResumeBook']], 
-            ['booNbrPage', $data['booNbrPage']], 
-            ['booEditorName', $data['booEditorName']], 
-            ['booLikeRatio', $data['booLikeRatio']], 
-            ['booCoverImage', $data['booCoverImage']], 
+        $query = "INSERT INTO t_book (category_fk, writer_fk, user_fk, booTitle, booExemplary, booResumeBook, booNbrPage, booEditorName, booLikeRatio, booCoverImage) 
+                  VALUES (:category_fk, :writer_fk, :user_fk, :booTitle, :booExemplary, :booResumeBook, :booNbrPage, :booEditorName, :booLikeRatio, :booCoverImage)";
+    
+        $binds = [
+            'category_fk' => $data['category_fk'],
+            'writer_fk' => $data['writer_fk'],
+            'user_fk' => $data['user_fk'],
+            'booTitle' => $data['booTitle'],
+            'booExemplary' => $data['booExemplary'],
+            'booResumeBook' => $data['booResumeBook'],
+            'booNbrPage' => $data['booNbrPage'],
+            'booEditorName' => $data['booEditorName'],
+            'booLikeRatio' => $data['booLikeRatio'],
+            'booCoverImage' => $data['booCoverImage'],
         ];
-        $req = $this->queryPrepareExecute($query, $binds);
+    
+        try {
+            $this->queryPrepareExecute($query, $binds);
+            echo 'Livre ajouté avec succès à la base de données.';
+            // Vous pouvez également retourner un message ou une valeur selon vos besoins.
+        } catch (Exception $e) {
+            // Gérer l'exception
+            die('Erreur lors de l\'ajout du livre : ' . $e->getMessage());
+        }
     }
+
+/*
+    // Méthode pour récupérer tous les livres d'une catégorie spécifique
+    }
+    */
+
+    public function getBooksByCategory($categoryId) {
+        $query = "SELECT booTitle, booResumeBook FROM t_book WHERE category_fk = :categoryId";
+        $stmt = $this->connector->prepare($query);
+        $stmt->bindValue(':categoryId', $categoryId, PDO::PARAM_INT);
+        $stmt->execute();
+        
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+    
+
+/*
+    // Méthode pour récupérer le nom de la catégory grâce à l'id 
+    }
+    */
+
+    public function getCategoryName($categoryId) {
+        $query = "SELECT catCategory FROM t_category WHERE category_id = :categoryId";
+        $stmt = $this->connector->prepare($query);
+        $stmt->bindValue(':categoryId', $categoryId, PDO::PARAM_INT);
+        $stmt->execute();
+        
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result ? $result['catCategory'] : null;
+    }
+    
 /*
     // Méthode pour supprimer un livre. Méthode faite avec un prepare pour éviter les injections sql.
     public function deleteTeacher($book_id){

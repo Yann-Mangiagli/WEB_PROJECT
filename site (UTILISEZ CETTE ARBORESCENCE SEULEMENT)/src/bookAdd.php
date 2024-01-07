@@ -54,20 +54,27 @@ if (isset($_SESSION['user'])) {
                     </h1>
                 <br><br><br>
             <div class="flexboxContainerAddBook">
-                <form action="checkBookAdd.php" method="post" class="myForm">
+                <form action="bookAddCheck.php" method="post" class="myForm" enctype="multipart/form-data">
                     <div class="flexbox" id="flexbox-item-1">    
                             <label for="txtBookName">TITRE DU LIVRE<br></label>
                             <input type="text" id="bookName" name="bookName"><br><br>
                             <label for="bookCategory">CATEGORIE<br></label>
-                            <select id="bookCategory">
-                                <?php 
+                            <select id="bookCategory" name="bookCategory">
+                            <?php 
                                 $htmlCategories = "";
-                                foreach($categories as $category)
-                                {
+                                // Ajoutez vos catégories ici
+                                $categories = [
+                                    ['category_id' => 1, 'catCategory' => 'Horreur'],
+                                    ['category_id' => 2, 'catCategory' => 'Comédie'],
+                                    ['category_id' => 3, 'catCategory' => 'Science-fiction'],
+                                    ['category_id' => 4, 'catCategory' => 'Policier'],
+                                ];
+
+                                foreach($categories as $category) {
                                     $htmlCategories .= "<option value=" . $category["category_id"] . ">" . $category["catCategory"] . "</option>";
                                 }
                                 echo $htmlCategories;
-                                ?>
+                            ?>
                             </select><br><br>
                             <label for="quantity">NOMBRE DE PAGE<br></label>
                             <input type="number" id="pageNbr" name="pageNbr" min="1" max="9999">
@@ -91,7 +98,7 @@ if (isset($_SESSION['user'])) {
                             <input type="date" id="releaseDate" name="releaseDate" min="1" max="9999">
                             <br><br>
                             <label for="extrait">COUVERTURE DU LIVRE<br></label>
-                            <input type="text" id="extraitBook" name="extraitBook" value="FICHIER PNG/JPEG/JPG">
+                            <input type="file" id="coverImage" name="coverImage" accept=".png, .jpeg, .jpg">
                         </div>
                         <div class="subButton">
                             <input type="submit" value="Envoyer">
