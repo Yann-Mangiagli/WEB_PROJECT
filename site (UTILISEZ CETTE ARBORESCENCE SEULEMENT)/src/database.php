@@ -35,6 +35,16 @@ class Database {
         return $req;
     }
 
+    private function queryPrepareExecuteIndexed($query, $binds){
+ 
+        $req = $this->connector->prepare($query);
+        foreach($binds as $bind) {
+            $req->bindValue($bind[0], $bind[1], PDO::PARAM_STR);
+        }    
+        $req->execute();
+        return $req;
+    }
+
     private function querySimpleExecute($query){
         // Fait la requête en utilisant query
         return $this->connector->query($query);
@@ -65,7 +75,7 @@ class Database {
         ['useIsAdmin', $userData['useIsAdmin'] ?? 0, PDO::PARAM_INT]
     ];
 
-    $this->queryPrepareExecute($query, $binds);
+    $this->queryPrepareExecuteIndexed($query, $binds);
     return; 
     }
 

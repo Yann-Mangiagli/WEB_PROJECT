@@ -36,6 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             'booLikeRatio' => 0, // A MODIFIER 
             'writerLastName' => $_POST['writerLastName'], 
             'writerFirstName' => $_POST['writerFirstName'],
+            'booEditionDate' => $_POST['releaseDate'], 
         ];
 
         if ($_FILES['coverImage']['error'] === 0) {
